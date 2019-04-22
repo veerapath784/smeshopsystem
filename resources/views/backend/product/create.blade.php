@@ -5,8 +5,9 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel bg-light">
-                <div class="container">
-                    <h2 class="panel-heading text-center mt-2">เพื่มสินค้า</h2>
+                <div class="container mt-2">
+
+                    <h2 class="panel-heading text-center p-3 mb-5">เพิ่มสินค้า</h2>
                     <form style="margin:15px;" method="post" action="{{route('product.store')}}" enctype="multipart/form-data">
                         @csrf @if (Session('status'))
                         <div class="alert alert-danger">

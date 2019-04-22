@@ -2,7 +2,7 @@
     <nav class="sidebar-nav">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="/admin/product">
+                <a class="nav-link" href="{{route('home')}}">
                     <i class="nav-icon icon-speedometer"></i> หน้าหลัก
                 </a>
             </li>
@@ -19,7 +19,10 @@
                 <a class="nav-link" href="/admin/product/edit">
                     <i class="nav-icon icon-pencil"></i> แก้ไขสินค้า</a>
             </li>
-
+            <li class="nav-item">
+                    <a class="nav-link" href="/admin/users">
+                        <i class="nav-icon icon-user"></i> รายการผู้ใช้</a>
+                </li>
         </ul>
     </nav>
     <button class="sidebar-minimizer brand-minimizer" type="button"></button>

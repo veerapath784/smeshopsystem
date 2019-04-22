@@ -6,12 +6,12 @@
 </div>
 @endif
 
-<div class="card-header">
+<div class="card-header mt-3">
     <i class="icon icon-puzzle"></i>สินค้าทั้งหมด
     <a href={{ route( 'product.create') }} class="float-right btn btn-primary btn-sm" id="toggleForm">
                         <i class="fa fa-plus"></i> เพิ่ม </a>
 </div>
-<table class="table">
+<table class="table table-responsive-sm table-bordered table-striped table-sm text-center">
     <thead>
 
         <tr>

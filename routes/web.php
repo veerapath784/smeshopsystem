@@ -18,6 +18,7 @@ Route::get('/', function () {
 
 
 
+
 Auth::routes();
 Route::get('logout', function(){
     auth()->logout();
@@ -33,4 +34,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('product', 'ProductController');
+Route::resource('users', 'UsersController');
 });
