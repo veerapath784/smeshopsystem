@@ -1,4 +1,5 @@
 @extends('backend.layout.master')
+@section('title', 'Admin/home/product')
 @section('content') @if (Session('status'))
 <div class="alert alert-success mt-3">
     {{Session('status')}}
@@ -14,11 +15,11 @@
     <thead>
 
         <tr>
-            <th>#</th>
+            <th>รายการที่</th>
             <th>รูปภาพสินค้า</th>
+            <th>ชื่อสินค้า</th>
             <th>ราคา</th>
             <th>รายระเอียดสินค้า</th>
-            <th>ชื่อสินค้า</th>
 
         </tr>
     </thead>

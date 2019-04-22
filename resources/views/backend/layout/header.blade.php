@@ -14,7 +14,7 @@
             <a class="nav-link" href="#">หน้าหลัก</a>
         </li>
         <li class="nav-item px-3">
-            <a class="nav-link" href="#">Users</a>
+            <a class="nav-link" href="home">Admin</a>
         </li>
         <li class="nav-item px-3">
             <a class="nav-link" href="#">Settings</a>
@@ -37,7 +37,7 @@
             <i class="icon-location-pin"></i>
           </a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown mr-5">
             @if(auth()->check())
             <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
            {{ auth()->user()->name}}
@@ -88,10 +88,6 @@
         </li>
 
     </ul>
-    <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" data-toggle="aside-menu-lg-show">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    <button class="navbar-toggler aside-menu-toggler d-lg-none" type="button" data-toggle="aside-menu-show">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+
+
 </header>
