@@ -27,13 +27,46 @@
         @foreach($products as $product)
         <tr>
             <td>{{$product->id}}</td>
-            <td><img src="{{$product->img}}" alt="{{$product->name}}"></td>
+            <td><img src="/{{$product->img}}" alt="{{$product->name}}" width="auto"></td>
             <td>{{$product->name}}</td>
             <td>{{$product->price}}</td>
             <td>{{$product->comment}}</td>
-
+            <td>
+                <div class="btn-group" role="group">
+                    <a href="#" class="btn btn-primary"><i class="fa fa-edit"></i> แก้ไข</a>
+                    <a href="javaScript: deleteItem('{{$product->id  }}')" class="btn btn-sm btn-danger">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </div>
+            </td>
         </tr>
         @endforeach
     </tbody>
 </table>
+@section('script')
+    <script>
+        var deleteItem = function deleteItem(id) {
+
+            swal.fire({
+                title: "แน่ใจหรือไม่ ?",
+                text: "คุณต้องการลบข้อมูลนี้จริงหรือไม่ ?",
+                type: "warning",
+                showCancelButton: true,
+            }).then(function (result) {
+                if (result.value) {
+                    axios.delete('/admin/product/' + id).then(function (response) {
+                        window.location.href = "/admin/product";
+                    }).catch(function (error) {
+                        console.log(error.response)
+                        swal('เกิดข้อผิดพลาด', 'ไม่สามารถลบข้อมูลได้ \n ' + error.response.statusText,
+                            'error');
+                    });
+                }
+            })
+
+
+        }
+
+    </script>
+    @endsection
 @endsection

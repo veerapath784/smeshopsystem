@@ -51,7 +51,8 @@ class ProductController extends Controller
                $imageName = "https://via.placeholder.com/450x580";
                if (request()->has('img')) {
                 $imageUpload = new ImageUpload(request()->file('img'), 'images/img');
-
+                $imageUpload->width = 450;
+                $imageUpload->height = 580;
                 $imageName = $imageUpload->execute();
                }
 
@@ -117,6 +118,10 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = \App\Product::find($id);
+        $product->delete();
+        return response()->json();
     }
+
 }
+

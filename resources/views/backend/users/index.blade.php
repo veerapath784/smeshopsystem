@@ -35,7 +35,9 @@
             <td>
                     <div class="btn-group" role="group">
                         <a href="#" class="btn btn-primary"><i class="fa fa-edit"></i> แก้ไข</a>
-                        <a href="#" class="btn btn-danger"> <i class="fa fa-trash"></i> ลบ</a>
+                        <a href="javaScript: deleteItem('{{$users->id  }}')" class="btn btn-sm btn-danger ">
+                            <i class="fa fa-trash mt-2"></i>
+                        </a>
                     </div>
             </td>
 
@@ -47,4 +49,30 @@
 
     </tbody>
 </table>
+@section('script')
+    <script>
+        var deleteItem = function deleteItem(id) {
+
+            swal.fire({
+                title: "แน่ใจหรือไม่ ?",
+                text: "คุณต้องการลบข้อมูลนี้จริงหรือไม่ ?",
+                type: "warning",
+                showCancelButton: true,
+            }).then(function (result) {
+                if (result.value) {
+                    axios.delete('/admin/users/' + id).then(function (response) {
+                        window.location.href = "/admin/users";
+                    }).catch(function (error) {
+                        console.log(error.response)
+                        swal('เกิดข้อผิดพลาด', 'ไม่สามารถลบข้อมูลได้ \n ' + error.response.statusText,
+                            'error');
+                    });
+                }
+            })
+
+
+        }
+
+    </script>
+    @endsection
 @endsection
