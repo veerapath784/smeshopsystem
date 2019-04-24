@@ -16,6 +16,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/exindex', function () {
+    return view('backend.exindex');
+});
 
 
 
